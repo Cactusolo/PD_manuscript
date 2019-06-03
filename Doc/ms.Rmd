@@ -1,8 +1,16 @@
 ---
-title: "Your Awesome Title"
-author: "Author One and Author Two"
+title: "Explore the evolutionary cause of phylogenetic diversity between East Asian and East North American disjucted forest communities"
+author: "Miao Sun, Hanyang Lin, Doug Soltis, Yunpeng Zhao, Pam Soltis"
 date: '`r format(Sys.time())`'
 output:
+  bookdown::word_document2: null
+  bookdown::html_document2:
+    number_sections: no
+    theme: readable
+    toc: yes
+  bookdown::tufte_html2:
+    number_sections: no
+    toc: yes
   bookdown::pdf_document2:
     includes:
       before_body: ../template/doc_prefix.tex
@@ -11,14 +19,6 @@ output:
     latex_engine: pdflatex
     number_sections: no
     toc: no
-  bookdown::html_document2:
-    number_sections: no
-    theme: readable
-    toc: yes
-  bookdown::tufte_html2:
-    number_sections: no
-    toc: yes
-  bookdown::word_document2: null
 fontsize: 12pt
 linestretch: 1.5
 link-citations: yes
@@ -43,26 +43,64 @@ if(!file.exists(tpl_1f <- '../template/preamble.tex')) download.file(tpl_1, tpl_
 if(!file.exists(tpl_2f <- '../template/doc_prefix.tex')) download.file(tpl_2, tpl_2f)
 ```
 
-**Running headline**: Environment and species richness
+**Running headline**: Evolutionary history of EA and ENA disjuction forest communities
 
-**Abstract**: Your awesome abstract here.
+**Abstract**: 
+
+
 
 \clearpage
 
 # Introduction
 
+
 Here is your introduction. It should describe clearly the rationale for the study being done and the previous work related with the study. It should also tell readers about your specific hypothese/questions being addressed. Citations will be like this [@adair_single-pool_2010], or [e.g., @clark_loss_2008], or [@eriksson_seed_1993; @williamson_dissolved_1999]
+
 
 Here is the second paragraph of the introduction. 
 
 
-# Methods
+# Materials and Methods
+#### (general method summary)
+  1. species list 
+  For 5 Chinese site, Shengnongjia Moutain (Mt.), Gutian Mt., Tianmu Mt., Changbai Mt., Dongling Mt., we collected species checklist from their nature reserves (See Table S1). [**Citation?**]
+  Since not all sites have complete species checklist, for 6 sites in Unites States, we collected species list for each site using two approaches. Intially, we consulted from species list if exist, local flora, and vouchers from our samplings. Send approched, we extract see plant species names of each site from public databased of GBIF, and idigbio with a defined polygon. The polygon was created by centered coordinates of each site with 10 km radius. All these procedures were conducted using R packages ("rinat", "sp", "spocc", "tidyverse", and "wicket").  
+  
+  All the resultant species lists were validated and reconsicled with The Plant List using R packages "Taxonstand".
+  
+  
+## Community phylogeny  
 
-Here is the method section. You can include equations easily. For inline equations, use $\text{var}(X) = p(1-p)$. For display equation, use
 
-$$\text{var}(X) = p(1-p)$$
+## Phylogenetic diversity
+  
+#### Alpha diversity
+#### Beta diversity
 
-## Results
+
+
+
+
+# Results
+Q1: Which floristic region, i.e., EAS or ENA, harbors greater species diversity, including species richness (SR) and phylogenetic diversity (PD)?
+
+A1: Collectively, EAS sites show greater species diversity than ENA. In term of species richness, sites in EAS harbor over one and half times of species number as ENA sites do (3667 vs. 2194). Meanwhile, both observed and standard-effective-size (SES) PD are determined to be greater in EAS sites than ENA (observed PD: 66034.38 vs. 44617.83, SES-PD: -2.71 vs. -6.40). 
+
+Q2: Among 11 EAS-ENA sites, where does seed plant biodiversity hotspot locate at? Do diversity changes along any gradients or follow any trends? And to what extent could diversity anomaly be observed? 
+
+A2: SES-PD of EAS sites tends to decrease along latitude, which has not been observed in ENA. Among 11 EAS-ENA sites, northernmost EAS site, CBS, shows the lowest SES-PD (-8.80), while southernmost EAS site, GTS, shows the greatest SES-PD (1.87). It is worth noticing that two northernmost sites in each continent show most significant asymmetry between species richness and SES-PD. Showing no gap in species richness (1140 spp.) comparing to the average diversity of species among five EAS sites (1174 spp.), CBS site embodies lowest SES-PD (-8.92). In ENA,  The White Mountain site have only 254 seed plants species inhabited, which is far below the average level of species richness in ENA (ca. 600 spp.), yet harboring the second highest phylogenetic diversity in ENA. In EAS, two northern sites, CBS and DLS, show high similarity and two southern sites, GTS and TMS show close affinity too. In ENA, dissimilarity sites among sites tends to aggravate with larger gap in latitude. From a global perspective, heterogeneities of phylogenetic diversity among sites are examined to be greater in EAS than ENA.
+
+Q3: What will the diversity scenarios be when seed plants are categorized to angiosperms vs. gymnosperms, or woody vs. herbaceous plants, or genera exhibiting EAS-ENA disjunction distribution vs. the remains?
+
+A3: Globally, herbaceous species have nearly twice members as woody species do (3750 vs. 1858 spp.), yet showing lower SES-PD (-22.02 vs. -9.29). Comparing to herbaceous plants, woody lineages show higher values on SES-PD, MPD and MNTD in all 11 sites. Angiosperms lineages show over 70 times in species richness with gymnosperms (5532 vs. 76 spp.), yet showing lower SES-PD (-12.26 vs. -8.91). When pooling together, lineages exhibiting EAS-ENA disjuct distribution show lower SES-PD value than the remains (-14.68 vs. -4.25). However, on individual site level, those EAS-ENA disjunction lineages show greater values on SES-PD, MPD and MNTD than both total communities and plant communities comprising of those not showing EAS-ENA disjunct distribution (referred to non-disjunct hereafter). Moreover, the total communities and non-disjunct lineages share large similarity on diversity curves while the EAS-ENA disjunctions show hardly identical trends with both of them.
+
+Q4: What pattern of community structure and putative community assemblage process show at regional and local scale respectively?
+
+A4: Note that NRI and NTI are two oft-used indexes in estimating community structure. Somehow, these two indexes could show opposite polarities. Basically, comparing to NTI, NRI could be used to better demonstrate community structure globally since it is generated from MPD. Hence, preferences towards using NRI on elucidating the community structure have been made in this study. Collectively, both EAS and ENA mixed mesophytic seed plant communities are determined to show no significant trend toward either phylogenetic over-dispersion or clustering at continental level based on NRI (-0.57 vs. 1.28). Specifically, majority of all 11 sites show the same community structure with the global scenario. In other words, most communities are examined to be assembled from nearly neutral process. However, some exceptions have been found. The White Mountain site show significant over-dispersion (NRI = -2.64), suggesting seed plant community there could be assembled by competitive exclusion or density effect. The Coweeta site show significant clustering (NRI = 2.05) which could suggest that habitat filtering had played a vital role in community assemblage. Moreover, based on NTI values, nine out of 11 sites show significant clustering (NTI >= 1.96). 
+
+Q5: Similar to Q3, considering different categories, what community structure and community assemblage process could be inferred?
+
+A5: Despite communities from both the Old and the New Worlds show largely no significant phylogenetic clustering or over-dispersion, seed plants with different lifeforms serve as strikingly different entities considering community structure and community assemblage process. On any scales, with mere exceptions, woody seed plants show significant over-dispersion while herbaceous lineages significant shows the opposite features, providing insights that woody communities have been shaped by competitive exclusion or density effect whilst the herbaceous components have undergone habitat filtering. Speaking of EAS-ENA disjunctions, those lineages show significant phylogenetic over-dispersion when taking all mixed forests from EAS and ENA as one mega community (NRT = -6.41) while the counterpart show significant clustering (NRI = 10.08). Within each continent, identical pattern could also be found. However, these overwhelming trends seem to diminish at finer scale. 
 
 
 #### Tables
